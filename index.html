@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geri Sayım</title>
+
+<style>
+    #div1 {
+            width: 40%;
+            height: auto;
+            position: relative;
+            left: 650px;
+            top: 350px;
+        }
+
+        #saat {
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            float: left;
+            margin-left: 4px;
+            font-size: 128px;
+            text-align: center;
+        }
+
+        #dakika {
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            float: left;
+            margin-left: 4px;
+            font-size: 128px;
+            text-align: center;
+        }
+
+        #saniye {
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            float: left;
+            margin-left: 4px;
+            font-size: 128px;
+            text-align: center;
+        }
+</style>
+
+
+</head>
+<body  bgcolor="green">
+
+    <div id="div1">
+
+
+        <div class="bitti" id="saat">
+
+        </div>
+
+        <div class="bitti"  id="dakika">
+
+
+        </div>
+
+        <div class="bitti"  id="saniye">
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <script>
+
+        var saat =prompt("Saat",0);
+        var dakika=prompt("Dakika",0);
+        var saniye=prompt("Saniye",10);
+
+
+      var a =  setInterval(function(){
+
+            document.getElementById("saat").innerHTML=saat;
+            document.getElementById("dakika").innerHTML=dakika;
+            document.getElementById("saniye").innerHTML=saniye--;
+
+            if(Number(document.getElementById("saniye").innerHTML) == 0 ) {
+
+                saniye=59;
+                dakika--;
+
+            }
+
+            if(Number(document.getElementById("dakika").innerHTML)==0 && Number(document.getElementById("saniye").innerHTML)==0)
+            {
+                dakika=59;
+                saat--;
+            } 
+
+            if(Number(document.getElementById("saat").innerHTML)==0 && Number(document.getElementById("saniye").innerHTML)==0
+             && Number(document.getElementById("dakika").innerHTML)==0 )
+            {
+
+                for(i=0;i<3;i++){
+
+                    document.getElementsByClassName("bitti")[i].style.backgroundColor="red";
+                   
+                        
+                }
+
+
+                clearInterval(a);
+
+                
+            } 
+             
+
+
+
+
+        },1000);
+
+        
+
+    </script>
+
+
+
+
+
+    
+</body>
+</html>
